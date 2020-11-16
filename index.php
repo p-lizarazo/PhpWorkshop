@@ -26,9 +26,45 @@
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./">Taller 3</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./gestor_usuario.php/">Crear/Modificar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./delete.php/">Eliminar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./gestor_archivos.php/">Subir archivo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./">Lista</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
     <?php
+
+    if (substr($_SERVER['REQUEST_URI'], -1) != "/") {
+        header('Location: ' . $uri . $_SERVER['REQUEST_URI'] . '/');
+    }
+    if (substr($_SERVER['REQUEST_URI'], -9) == "index.php") {
+        header('Location: ' . $uri . str_replace("index.php", "", $_SERVER['REQUEST_URI']));
+    }
+    if (substr($_SERVER['REQUEST_URI'], -10) == "index.php/") {
+        header('Location: ' . $uri . str_replace("index.php/", "", $_SERVER['REQUEST_URI']));
+    }
+
     include "Repository/users_repository.php";
-    
+
     $users = listaUsuarios();
 
     $order = @$_GET["orden"];
