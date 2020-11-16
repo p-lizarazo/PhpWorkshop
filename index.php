@@ -140,11 +140,11 @@
                             <td><?php echo $user->correo_electronico ?></td>
                             <td>
                                 <div class="d-flex" style="align-items: baseline;">
-                                    <span class="px-3 py-3 m-2" >
-                                        <a class="gg-pen" href=<?php echo "./gestor_usuario/?cedula=".$user->cedula."&nombre=".$user->nombre."&apellido=".$user->apellido."&edad=".$user->edad."&correo=".$user->correo_electronico ?> ></a>
+                                    <span class="px-3 py-3 m-2">
+                                        <a class="gg-pen" href=<?php echo "./gestor_usuario.php/?cedula=" . $user->cedula . "&nombre=" . $user->nombre . "&apellido=" . $user->apellido . "&edad=" . $user->edad . "&correo=" . $user->correo_electronico ?>></a>
                                     </span>
                                     <span class="p-2 m-2">
-                                        <a class="gg-trash" href=<?php echo "./delete/?cedula=".$user->cedula ?>></a>
+                                        <a class="gg-trash" href=<?php echo "./delete.php/?cedula=" . $user->cedula ?>></a>
                                     </span>
                                 </div>
                             </td>
