@@ -34,8 +34,8 @@
         new User("53932", "Zeta", "lizarazo", 35, "correo"),
     );
 
-    $order = $_GET["orden"];
-    $order_att = $_GET["atributo"];
+    $order = @$_GET["orden"];
+    $order_att = @$_GET["atributo"];
 
     function cmp_asc_cedula($a, $b)
     {
@@ -137,11 +137,11 @@
                             <td><?php echo $user->nombre ?></td>
                             <td><?php echo $user->apellido ?></td>
                             <td><?php echo $user->edad ?></td>
-                            <td><?php echo $user->correo ?></td>
+                            <td><?php echo $user->correo_electronico ?></td>
                             <td>
                                 <div class="d-flex" style="align-items: baseline;">
                                     <span class="px-3 py-3 m-2" >
-                                        <a class="gg-pen" href="./gestor_usuario"></a>
+                                        <a class="gg-pen" href=<?php echo "./gestor_usuario/?cedula=".$user->cedula."&nombre=".$user->nombre."&apellido=".$user->apellido."&edad=".$user->edad."&correo=".$user->correo_electronico ?> ></a>
                                     </span>
                                     <span class="p-2 m-2">
                                         <a class="gg-trash" href=<?php echo "./delete/?cedula=".$user->cedula ?>></a>
