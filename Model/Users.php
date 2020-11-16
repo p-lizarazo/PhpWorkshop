@@ -12,7 +12,7 @@ class User{
 		$this->nombre = $nombre;
 		$this->apellido = $apellido;
 		$this->edad = $edad;
-        $this->correo = $correo;
+        $this->correo_electronico = $correo;
     }
     
     
