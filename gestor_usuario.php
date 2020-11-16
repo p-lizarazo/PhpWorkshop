@@ -5,17 +5,39 @@
 <body>
   
 <?php
-  include "./Model/Users.php";
+  include "Repository/users_repository.php";
+
+
+  if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    $cedula = @$_POST["cedula"];
+    $nombre = @$_POST["nombre"];
+    $apellido = @$_POST["apellido"];
+    $edad = @$_POST["edad"];
+    $correo = @$_POST["correo"];
+
+    @$_GET["cedula"] = $cedula;
+    @$_GET["nombre"] = $nombre;
+    @$_GET["apellido"] = $apellido;
+    @$_GET["edad"] = $edad;
+    @$_GET["correo"] = $correo;
+
+    $user = new User($cedula, $nombre, $apellido, $edad, $correo);
+
+    $accion = putUsuario($user);
+
+    echo '<div class="bg-success text-white p-3 m-3 h4">' . $accion . '</div>';
+  }
 
   $cedula = @$_GET["cedula"];
   $nombre = @$_GET["nombre"];
   $apellido = @$_GET["apellido"];
   $edad = @$_GET["edad"];
   $correo = @$_GET["correo"];
+
 ?>
   <div class="conainter w-50 mx-auto mt-3">
     <h2>Crear o Modificar Usuario</h2>
-    <form action="../Repository/users_repository.php" method="post">
+    <form action="" method="post">
       <div class="form-group">
         <label for="cedula">Cedula</label>
         <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $cedula?>">

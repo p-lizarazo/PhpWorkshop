@@ -27,12 +27,9 @@
 
 <body>
     <?php
-    include "./Model/users.php";
-    $users = array(
-        new User("9932", "Andrea", "lizarazo", 35, "correo"),
-        new User("1234", "Pedro", "lizarazo", 35, "correo"),
-        new User("53932", "Zeta", "lizarazo", 35, "correo"),
-    );
+    include "Repository/users_repository.php";
+    
+    $users = listaUsuarios();
 
     $order = @$_GET["orden"];
     $order_att = @$_GET["atributo"];
