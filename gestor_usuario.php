@@ -1,0 +1,2 @@
+#TODO: puede recibir params del usuario y llena los values para actualizar o puede llenarse de 0 y crear un usuario, en ambos casos se envia un POST
+# y si la cedula existe se actualiza y si no se crea.

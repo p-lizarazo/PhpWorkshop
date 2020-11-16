@@ -1,0 +1,1 @@
+# TODO: Si es un get se muestra el formulario de confirmacion y si es un post se elimina y redirigue a la tabla

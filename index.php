@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href='https://css.gg/arrow-down.css' rel='stylesheet'>
     <link href='https://css.gg/arrow-up.css' rel='stylesheet'>
+    <link href='https://css.gg/trash.css' rel='stylesheet'>
+    <link href='https://css.gg/pen.css' rel='stylesheet'>
     <style>
         .gg-arrow-up {
             color: green;
@@ -11,6 +13,14 @@
 
         .gg-arrow-down {
             color: red;
+        }
+
+        .gg-pen {
+            color: darkgoldenrod;
+        }
+
+        .gg-trash {
+            color: darkred;
         }
     </style>
 </head>
@@ -128,6 +138,16 @@
                             <td><?php echo $user->apellido ?></td>
                             <td><?php echo $user->edad ?></td>
                             <td><?php echo $user->correo ?></td>
+                            <td>
+                                <div class="d-flex" style="align-items: baseline;">
+                                    <span class="px-3 py-3 m-2" >
+                                        <a class="gg-pen" href="./gestor_usuario"></a>
+                                    </span>
+                                    <span class="p-2 m-2">
+                                        <a class="gg-trash" href=<?php echo "./delete/?cedula=".$user->cedula ?>></a>
+                                    </span>
+                                </div>
+                            </td>
                         </tr>
                     <?php
                     endforeach;
