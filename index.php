@@ -1,7 +1,6 @@
 <?php
-    $users = array(
-        "nom" => "perro",
-    )
+    include "./Model/users.php";
+    $users = new User("1234","pedro","lizarazo",35,"correo");
 ?>
 
 <?php
@@ -15,11 +14,11 @@
     </th>
     <tbody>
         <?php
-        
+
         ?>
 
         <?php
-        
+
         ?>
     </tbody>
 </table>

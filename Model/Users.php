@@ -1,6 +1,6 @@
   
 <?php
-class Users{
+class User{
     private $id;
 	private $cedula;
     private $nombre;
@@ -14,8 +14,5 @@ class Users{
 		$this->edad = $edad;
         $this->correo = $correo;
 	}	
-}	
-$instancia = new MiClase("Pedro",25);
-$instancia->saludar();
+}
 ?>
-Hola
