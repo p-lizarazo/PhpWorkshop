@@ -42,7 +42,7 @@
     crearTablaUsuarios();
   }
 
-  function insertarUsuario($user) {
+  function crearUsuario($user) {
     global $conexionBD;
     $sql = "INSERT INTO USERS (CEDULA, NOMBRE, APELLIDO, EDAD, CORREO_ELECTRONICO) VALUES ('".
       $user->cedula."', '".
@@ -74,14 +74,20 @@
   function buscarUsuario($user) {
     global $conexionBD;
     $sql = "SELECT * FROM USERS WHERE CEDULA = '".$user->cedula."'";
-    return mysqli_query($conexionBD, $sql);
+    $result = mysqli_query($conexionBD, $sql);
+    $users = array();
+    while ($user = $result->fetch_object()) {
+      array_push($users, new User($user->CEDULA, $user->NOMBRE, $user->APELLIDO, $user->EDAD, $user->CORREO_ELECTRONICO));
+    }
+    mysqli_free_result($result);
+    return $users;
   }
 
   function obtenerUsuarios() {
     global $conexionBD;
     $sql = "SELECT * FROM USERS";
-    $users = array();
     $result = mysqli_query($conexionBD, $sql);
+    $users = array();
     while ($user = $result->fetch_object()) {
       array_push($users, new User($user->CEDULA, $user->NOMBRE, $user->APELLIDO, $user->EDAD, $user->CORREO_ELECTRONICO));
     }
